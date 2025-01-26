@@ -1,0 +1,17 @@
+services:
+  rabbitmq:
+    image: rabbitmq:4.0.5-management-alpine
+    container_name: rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: 'rabbitmq'
+      RABBITMQ_DEFAULT_PASS: 'rabbitmq'
+    ports:
+      - "5672:5672"     # default port for spring to access RabbitMQ
+      - "15672:15672"   # default port for RabbitMQ Management Web Plugin
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+      - rabbitmq_log:/var/log/rabbitmq
+
+volumes:
+  rabbitmq_data:
+  rabbitmq_log:
