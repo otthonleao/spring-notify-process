@@ -23,7 +23,7 @@ public class OrderService {
 
     public Order enqueueOrder(Order order) {
         rabbitTemplate.convertAndSend(exchangeName, "", order);
-        logger.info("Enfileirando pedido: {}", order.toString());
+        logger.info("Enfileirando pedido: {}", order);
         return order;
     }
 
