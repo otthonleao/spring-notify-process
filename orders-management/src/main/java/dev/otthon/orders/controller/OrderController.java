@@ -1,11 +1,13 @@
 package dev.otthon.orders.controller;
 
 import dev.otthon.orders.domain.Order;
+import dev.otthon.orders.service.OrderService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -23,6 +25,11 @@ public class OrderController {
 
     private final Logger logger = LoggerFactory.getLogger(OrderController.class);
 
+    private final OrderService orderService;
+
+    public OrderController(OrderService orderService) {
+        this.orderService = orderService;
+    }
 
     @PostMapping
     @Operation(summary = "Criar um pedido")
@@ -30,6 +37,7 @@ public class OrderController {
     public ResponseEntity<Order> createOrder(@RequestBody Order order) {
 
         logger.info("Pedido recebido: {}", order.toString());
+        order = orderService.enqueueOrder(order);
         return ResponseEntity.status(HttpStatus.CREATED).body(order);
 
     }
