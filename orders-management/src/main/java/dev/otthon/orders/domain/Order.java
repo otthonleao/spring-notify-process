@@ -38,4 +38,16 @@ public class Order {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime dateTime = LocalDateTime.now();
 
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", client='" + client + '\'' +
+                ", items=" + items +
+                ", total=" + total +
+                ", emailNotification='" + emailNotification + '\'' +
+                ", status=" + status +
+                ", dateTime=" + dateTime +
+                '}';
+    }
 }

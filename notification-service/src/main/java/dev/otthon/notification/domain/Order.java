@@ -57,4 +57,17 @@ public class Order {
     public Status getStatus() {
         return status;
     }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", client='" + client + '\'' +
+                ", items=" + items +
+                ", total=" + total +
+                ", emailNotification='" + emailNotification + '\'' +
+                ", status=" + status +
+                ", dateTime=" + dateTime +
+                '}';
+    }
 }
