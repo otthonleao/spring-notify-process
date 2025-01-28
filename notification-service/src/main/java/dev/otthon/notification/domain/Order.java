@@ -38,4 +38,23 @@ public class Order {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime dateTime = LocalDateTime.now();
 
+    public UUID getId() {
+        return id;
+    }
+
+    public String getClient() {
+        return client;
+    }
+
+    public BigDecimal getTotal() {
+        return total;
+    }
+
+    public String getEmailNotification() {
+        return emailNotification;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
 }
