@@ -29,4 +29,11 @@ public class OrderItem {
     @JsonProperty("order")
     private Order order;
 
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
 }
