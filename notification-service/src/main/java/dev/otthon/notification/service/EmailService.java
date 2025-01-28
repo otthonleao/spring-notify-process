@@ -1,7 +1,6 @@
 package dev.otthon.notification.service;
 
 import dev.otthon.notification.domain.Order;
-import lombok.RequiredArgsConstructor;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
