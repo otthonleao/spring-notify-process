@@ -48,6 +48,10 @@ public class Order {
     @Column(name = "date_time")
     private LocalDateTime dateTime = LocalDateTime.now();
 
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "Order{" +
