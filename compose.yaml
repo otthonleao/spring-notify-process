@@ -19,6 +19,30 @@ services:
       - "1025:1025"     # default port for Spring to access MailHog SMTP
       - "8025:8025"     # default port for MailHog Web UI
 
+  database:
+    image: postgres:17.2-alpine3.21
+    container_name: postgres_notify-process
+    environment:
+      POSTGRES_USER: docker
+      POSTGRES_PASSWORD: docker123
+      POSTGRES_DB: spring-notify-process_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - db-postgres-data:/var/lib/postgresql/data
+    networks:
+      - dev-network
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"     # Limita o uso de CPU a 50%
+          memory: "512M"  # Limita a memória a 512 MB
+
 volumes:
   rabbitmq_data:
   rabbitmq_log:
+  db-postgres-data:
+
+networks:
+  dev-network:
+    driver: bridge
