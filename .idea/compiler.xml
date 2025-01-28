@@ -13,13 +13,14 @@
         </processorPath>
         <module name="orders-management" />
       </profile>
-      <profile name="Annotation profile for order-process-service" enabled="true">
+      <profile name="Annotation profile for order-processor-service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
         </processorPath>
+        <module name="order-processor-service" />
         <module name="notification-service" />
       </profile>
     </annotationProcessing>
@@ -31,6 +32,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="notification-service" options="-parameters" />
       <module name="order-process-service" options="-parameters" />
+      <module name="order-processor-service" options="-parameters" />
       <module name="orders-management" options="-parameters" />
     </option>
   </component>
