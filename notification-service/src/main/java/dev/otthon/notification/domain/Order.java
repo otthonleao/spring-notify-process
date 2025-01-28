@@ -1,8 +1,8 @@
-package dev.otthon.orders.domain;
+package dev.otthon.notification.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import dev.otthon.orders.domain.enums.Status;
+import dev.otthon.notification.domain.enums.Status;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -37,6 +37,26 @@ public class Order {
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime dateTime = LocalDateTime.now();
+
+    public UUID getId() {
+        return id;
+    }
+
+    public String getClient() {
+        return client;
+    }
+
+    public BigDecimal getTotal() {
+        return total;
+    }
+
+    public String getEmailNotification() {
+        return emailNotification;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
 
     @Override
     public String toString() {
